@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-    <div class="w-full h-[50vh] overflow-hidden">
+    <div class=" w-full h-dvh/2 overflow-hidden">
         <img src="{{ asset('images/aura-monster.gif') }}" alt="Re:Zero" class="w-full h-full object-cover">
     </div>
     <h1 class="text-3xl font-bold my-4">Reviews de Re:ZERO</h1>

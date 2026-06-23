@@ -15,7 +15,7 @@
                     {{ number_format($episode->reviews->avg('rating'), 1) }}/5
                 </div>
 
-                <h2 class="text-lg font-bold pr-16">Ep. {{ $episode->number }} — {{ $episode->title }}</h2>
+                <h2 class="text-lg font-bold pr-16">T{{ $episode->season }} : E{{ $episode->number }} — {{ $episode->title }}</h2> 
 
                 <ul class="mt-3 space-y-1">
                     @foreach ($episode->reviews->take(3) as $review)

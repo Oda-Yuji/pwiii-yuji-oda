@@ -6,7 +6,7 @@
     <title>Re:ZERO -Starting Life in Another World - Avaliações</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-[#181624] text-white">
+<body class="bg-[#181624] text-white min-h-dvh">
     <nav class="fixed top-0 left-0 right-0 z-50 bg-indigo-50 border-b border-[#776eb4] shadow-sm">
         <div class="flex items-center justify-between px-6 h-16">
             <a href="{{ route('home') }}">
