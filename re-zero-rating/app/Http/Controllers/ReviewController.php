@@ -2,55 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Review; 
+use App\Models\Review;
+use App\Models\Episode;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
-    public readonly Review $review;
-
-    public function __construct()
+    public function store(Request $request, Episode $episode)
     {
-        $this->review = new Review();
+        $validated = $request->validate([
+            'content' => 'required|string',
+            'rating' => 'required|integer|min:1|max:5',
+        ]);
+
+        $episode->reviews()->updateOrCreate(
+            ['user_id' => auth()->id()],
+            [...$validated, 'user_id' => auth()->id()]
+        );
+
+        return redirect()->route('episodes.show', $episode);
     }
 
-    public function index()
-    {
-        $reviews = $this->review->all();
-        return view('reviews', ['reviews' => $reviews]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Review $review)
     {
         $this->authorize('update', $review);
-        return view('reviews-edit', ['review' => $review]);
+        return redirect()->route('episodes.show', $review->episode_id);
     }
 
     public function update(Request $request, Review $review)
@@ -58,19 +34,19 @@ class ReviewController extends Controller
         $this->authorize('update', $review);
 
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
             'content' => 'required|string',
             'rating' => 'required|integer|min:1|max:5',
         ]);
 
         $review->update($validated);
-        return redirect()->route('reviews.index');
+        return redirect()->route('episodes.show', $review->episode_id);
     }
 
     public function destroy(Review $review)
     {
         $this->authorize('delete', $review);
+        $episode_id = $review->episode_id;
         $review->delete();
-        return redirect()->route('reviews.index');
+        return redirect()->route('episodes.show', $episode_id);
     }
 }

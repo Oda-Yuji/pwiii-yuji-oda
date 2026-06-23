@@ -7,7 +7,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-[#181624] text-white">
-    <nav class="w-full bg-indigo-50 border-b border-[#776eb4] shadow-sm">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-indigo-50 border-b border-[#776eb4] shadow-sm">
         <div class="flex items-center justify-between px-6 h-16">
             <a href="{{ route('home') }}">
                 <img src="{{ asset('images/re-zero-logo.png') }}" alt="Logo" class="h-13">
@@ -28,7 +28,7 @@
         </div>
     </nav>
 
-    <div class="text-center items-center mx-auto">
+    <div class="text-center items-center mx-auto pt-16">
         @yield('content')
     </div>
 </body>
