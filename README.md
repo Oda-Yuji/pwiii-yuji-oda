@@ -15,4 +15,6 @@ Enfim
 
     npm run dev
 
-Se tudo correr bem, o projeto deve estar funcionando.
+Se tudo correr bem, o projeto deve estar funcionando. Mas não se esqueça das migrations
+
+    php artisan migrate
