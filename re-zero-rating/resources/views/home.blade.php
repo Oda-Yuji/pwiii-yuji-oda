@@ -150,7 +150,7 @@
         @foreach ($cast as $member)
             <div class="flex items-center gap-4 py-3">
                 <img
-                    src="{{ asset('images/' . $member['avatar'] . '.jpg') }}"
+                    src="{{ asset('images/avatars/' . $member['avatar'] . '.jpg') }}"
                     alt="{{ $member['actor'] }}"
                     class="size-24 rounded-full object-cover shrink-0 bg-zinc-700"
                     onerror="this.style.display='none'">
