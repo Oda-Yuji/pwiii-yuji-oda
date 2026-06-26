@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Season;
 use App\Models\Episode;
 
 class EpisodeController extends Controller
 {
     public function index()
     {
-        $episodes = Episode::with(['reviews' => function ($query) {
-            $query->latest()->limit(3);
-        }])->get();
+        $seasons = Season::with(['episodes.reviews'])->orderBy('number')->get();
 
-        return view('episodes', ['episodes' => $episodes]);
+        return view('episodes', ['seasons' => $seasons]);
     }
 
     public function show(Episode $episode)
