@@ -37,7 +37,7 @@
         ['actor' => 'Satomi Arai', 'character' => 'Beatrice', 'avatar' => 'avatar-satomi-arai', 'description' => 'Uma das coadjuvantes principais da série.'],
         ['actor' => 'Yumi Uchiyama', 'character' => 'Echidna', 'avatar' => 'avatar-yumi-uchiyama', 'description' => 'Uma das personagens mais misteriosas da série.'],
         ['actor' => 'Shimba Tsuchiya', 'character' => 'Garfiel Tinsel', 'avatar' => 'avatar-shimba-tsuchiya', 'description' => 'Um dos coadjuvantes principais da série.'],
-        ['actor' => 'Chinatsu Akasaki', 'character' => 'Frederica Baumann', 'avatar' => 'avatar-chinatsu-akasaki', 'description' => 'Uma das coadjuvantes principais da série.'],
+        ['actor' => 'Chinatsu Akasaki', 'character' => 'Frederica Baumann', 'avatar' => 'avatar-chinatsu-akasaki', 'description' => 'Uma das coadjuvantes da série.'],
         ['actor' => 'Akira Ishida', 'character' => 'Roswaal L. Mathers', 'avatar' => 'avatar-akira-ishida', 'description' => 'Um dos coadjuvantes principais da série.'],
         ['actor' => 'Yoshitsugu Matsuoka', 'character' => 'Julius Juukulius', 'avatar' => 'avatar-yoshitsugu-matsuoka', 'description' => 'Um dos coadjuvantes principais da série.'],
         ['actor' => 'Sora Amamiya', 'character' => 'Priscilla Barielle', 'avatar' => 'avatar-sora-amamiya', 'description' => 'Uma das candidatas reais da série.'],
@@ -45,14 +45,14 @@
         ['actor' => 'Mamoru Miyano', 'character' => 'Reinhard van Astrea', 'avatar' => 'avatar-mamoru-miyano', 'description' => 'Um dos coadjuvantes principais da série.'],
         ['actor' => 'Reina Ueda', 'character' => 'Anastasia Hoshin', 'avatar' => 'avatar-reina-ueda', 'description' => 'Uma das candidatas reais da série.'],
         ['actor' => 'Kengo Kawanishi', 'character' => 'Otto Suwen', 'avatar' => 'avatar-kengo-kawanishi', 'description' => 'Um dos coadjuvantes principais da série.'],
-        ['actor' => 'Mugihito', 'character' => 'Shaula', 'avatar' => 'avatar-mugihito', 'description' => 'Uma das coadjuvantes principais da série.'],
+        ['actor' => 'Mugihito', 'character' => 'Shaula', 'avatar' => 'avatar-mugihito', 'description' => 'Uma das coadjuvantes da série.'],
         ['actor' => 'Aoi Yuki', 'character' => 'Felt', 'avatar' => 'avatar-aoi-yuki', 'description' => 'Uma das candidatas reais da série.'],
     ];
 @endphp
 
 {{-- HERO --}}
-<div class="w-full h-[50vh] overflow-hidden relative">
-    <img src="{{ asset('images/hero1.jpg') }}" alt="Re:ZERO Hero" class="w-full h-full object-cover">
+<div class="w-full h-[61vh] overflow-hidden relative">
+    <img src="{{ asset('images/heros/hero3.jpg') }}" alt="Re:ZERO Hero" class="w-full h-full object-cover">
     <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#181624]"></div>
 </div>
 
@@ -68,7 +68,7 @@
     <div class="w-64 shrink-0">
         {{-- Poster clicável --}}
         <img
-            src="{{ asset('images/poster-s4-v1.jpg') }}"
+            src="{{ asset('images/posters/poster-s4-v1.jpg') }}"
             alt="Poster T4"
             class="w-full rounded-lg cursor-pointer hover:opacity-80 transition"
             onclick="openModal(6)">
@@ -104,7 +104,7 @@
         {{-- Sinopse --}}
         <h2 class="text-lg font-bold mb-2 text-gray-200">Sinopse</h2>
         <p class="text-gray-400 leading-relaxed">
-            Natsuki Subaru, um jovem sem nenhuma habilidade especial, é misteriosamente transportado para um mundo de fantasia ao sair de uma conveniência. Sem dinheiro, poder ou aliados, ele é salvo por uma jovem elfa de cabelos prateados chamada Emilia. Para retribuir o favor, ele decide ajudá-la a recuperar um item roubado. Porém, ao chegar ao covil de um ladrão, ambos acabam sendo brutalmente assassinados. Subaru então acorda no mesmo local onde havia chegado, e percebe que possui o poder de "Retornar pela Morte" — revivendo toda vez que morre, mas sem poder revelar isso a ninguém.
+            Natsuki Subaru, um jovem sem nenhuma habilidade especial, é misteriosamente transportado para um mundo de fantasia ao sair de uma loja de conveniência. Sem dinheiro, poder ou aliados, ele é salvo por uma jovem elfa de cabelos prateados chamada Emilia. Para retribuir o favor, ele decide ajudá-la a recuperar um item roubado. Porém, ao chegar ao covil do ladrão, ambos acabam sendo brutalmente assassinados. Subaru então acorda no mesmo local onde havia chegado, e percebe que possui o poder de "Retornar pela Morte" — voltando no tempo toda vez que morre.
         </p>
     </div>
 </div>
@@ -143,7 +143,7 @@
 </div>
 
 {{-- ELENCO --}}
-<div class="px-12 mt-12 mb-12">
+<div class="px-12 mt-12 mb-0">
     <h2 class="text-2xl font-bold mb-6 border-b border-accent pb-2">Elenco</h2>
 
     <div class="grid grid-cols-2 gap-4">
@@ -172,7 +172,7 @@
         <div class="relative">
             @foreach ($posters as $i => $poster)
                 <img
-                    src="{{ asset('images/' . $poster['file'] . '.jpg') }}"
+                    src="{{ asset('images/posters/' . $poster['file'] . '.jpg') }}"
                     alt="{{ $poster['label'] }}"
                     id="poster-{{ $i }}"
                     class="poster-slide hidden w-full max-h-[80vh] object-contain rounded-lg">

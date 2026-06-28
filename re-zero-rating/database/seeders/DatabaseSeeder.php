@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\EpisodeTitlesSeeder;
+use Database\Seeders\UserSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,7 +14,9 @@ class DatabaseSeeder extends Seeder
 
     public function run(): void
     {
-        // database/seeders/DatabaseSeeder.php
-        $this->call(UserSeeder::class);
+        $this->call([
+            UserSeeder::class,
+            EpisodeTitlesSeeder::class,
+        ]);
     }
 }
